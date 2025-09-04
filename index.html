@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Future Time Machine</title>
+  <style>
+    body {
+      background: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .box {
+      background: #111;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 0 20px green;
+      width: 400px;
+    }
+    h1 {
+      margin-bottom: 20px;
+      color: white;
+    }
+    input {
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      text-align: center;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin-left: 10px;
+      background: limegreen;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background: green;
+    }
+    #output {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      min-height: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Future Time Machine</h1>
+    <input type="number" id="year" placeholder="Enter Year">
+    <button onclick="travel()">Travel</button>
+    <p id="output"></p>
+  </div>
+
+  <script>
+    function travel() {
+      let year = document.getElementById("year").value;
+      let output = document.getElementById("output");
+      output.innerHTML = ""; 
+      output.style.color = "white";
+
+      if (year == "") {
+        output.style.color = "yellow";
+        output.innerHTML = "Pehle koi year daal 🚀";
+        return;
+      }
+
+      let lines = [
+        "Building Wormhole...",
+        "Calling Aliens...",
+        "Missed call received from Narendra Modi...",
+        "Traveling through Dimensions..."
+      ];
+
+      let delay = 3000; // 5 second delay
+
+      lines.forEach((line, index) => {
+        setTimeout(() => {
+          output.style.color = "white"; 
+          output.innerHTML = line;
+        }, (index + 1) * delay);
+      });
+
+      setTimeout(() => {
+        output.style.color = "red";
+        if (year == 2026) {
+          output.innerHTML = "2026 me toh duniya Hi khatam hai 🤣";
+        } else if (year < 2026) {
+    output.innerHTML = "Arey yeh toh purana zamana hai.. papa ne manaa kiya hai chhote bacche yahaa nahi jaate 😁";
+        } else {
+          output.innerHTML = "2026 me toh duniya Hi khatam hai 🤣";
+        }
+      }, (lines.length + 1) * delay);
+    }
+  </script>
+</body>
+</html>
